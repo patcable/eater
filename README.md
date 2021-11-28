@@ -5,7 +5,7 @@ _Not affiliated with Eater or Bitesnap_
 Takes a Bitesnap JSON food log and makes it into something you could easily share with whoever you need to share it with. Currently only does photos and descriptions, because that's what I use it for.
 
 ## How it Runs
-You can go to (eater.tech)[https://eater.tech] and see for yourself. Upload a JSON and go for it.
+You can go to [eater.tech](https://eater.tech) and see for yourself. Upload a JSON and go for it.
 
 The lambda has a 1sec timeout and 128mb of RAM.
 

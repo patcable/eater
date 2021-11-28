@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Eater - A Food Log Generator</title>
+    <style>
+{{.Style}}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap" rel="stylesheet">
+  </head>
+
+  <body>{{range .Entries}}
+    <div class="food">
+      <div class="image">
+        {{if eq .ImageURL ""}}No Image{{else}}<img src="{{.ImageURL}}" width="200" height="200">{{end}}
+      </div>
+      <div class="description">
+        <h2>{{if eq .Title ""}}{{.FoodItemName}}{{else}}{{.Title}}{{end}}</h2>
+        <p class="date">{{.EatenAtLocalTime}} | {{.ServingQuantity}} {{.ServingUnits}}</p>
+        <p>{{.Description}}</p>
+      </div>
+    </div>{{end}}
+  </body>
+</html>

@@ -10,6 +10,8 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"strconv"
+	"time"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -48,7 +50,15 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	json.Unmarshal(uploadData, &meals)
 	css, _ := ioutil.ReadFile("style.css")
 	meals.Style = template.CSS(css)
-	parsedTemplate, _ := template.ParseFiles("foodlog.gohtml")
+	templateFuncs := template.FuncMap{
+		"convertTime": func(t int64) string {
+			s := strconv.FormatInt(t, 10)
+			layout := "20060102150405"
+			tm, _ := time.Parse(layout, s)
+			return tm.Format("Monday Jan 2 2006 @ 3:04pm")
+		},
+	}
+	parsedTemplate, _ := template.New("foodlog.gohtml").Funcs(templateFuncs).ParseFiles("foodlog.gohtml")
 	var tpl bytes.Buffer
 	parsedTemplate.Execute(&tpl, meals)
 

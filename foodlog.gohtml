@@ -18,7 +18,7 @@
       </div>
       <div class="description">
         <h2>{{if eq .Title ""}}{{.FoodItemName}}{{else}}{{.Title}}{{end}}</h2>
-        <p class="date">{{.EatenAtLocalTime}} | {{.ServingQuantity}} {{.ServingUnits}}</p>
+        <p class="date">{{convertTime .EatenAtLocalTime}} | {{.ServingQuantity}} {{.ServingUnits}}</p>
         <p>{{.Description}}</p>
       </div>
     </div>{{end}}

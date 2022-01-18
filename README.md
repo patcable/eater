@@ -12,4 +12,3 @@ The lambda has a 1sec timeout and 128mb of RAM.
 ## Areas for Improvement
 * This could almost certainly be a single html file with an embedded JS file, but sometimes you end up using the tools you're familiar with.
 * The design is... obviously not my area of expertise. Any help with `foodlog.gohtml` and `style.css` would be appreciated
-* A step to parse the time into something more readable than `YYYYMMDDHHMMSS` would be nice.

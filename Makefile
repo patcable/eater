@@ -1,6 +1,6 @@
 TARGETS = eater
 
-eater: 
+eater: eater.go foodlog.gohtml style.css
 	GOARCH=amd64 GOOS=linux go build
 
 eater.zip: eater
